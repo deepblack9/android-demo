@@ -1,94 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/activity_page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <RelativeLayout
-        android:id="@+id/rlBottomTabTopbar"
-        style="@style/topbar_bg" >
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/fragment_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tabs_rg" />
+    <!--<FrameLayout-->
+        <!--android:id="@+id/fragment_container"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_above="@+id/tabs_rg" />-->
 
-        <TextView
-            style="@style/topbar_title"
-            android:layout_centerHorizontal="true"
-            android:text="主页" />
-    </RelativeLayout>
+    <RadioGroup
+        android:id="@+id/tabs_rg"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="#dcdcdc"
+        android:orientation="horizontal">
 
-    <FrameLayout
-        android:id="@+id/flMainTabFragmentContainer"
-        style="@style/match_match"
-        android:layout_weight="1" >
-    </FrameLayout>
+        <RadioButton
+            android:id="@+id/today_tab"
+            style="@style/Custom.TabRadioButton"
+            android:checked="true"
+            android:drawableTop="@drawable/tab_sign_selector"
+            android:text="今日" />
 
-    <View style="@style/divider_horizontal_1px_gray" />
+        <RadioButton
+            android:id="@+id/record_tab"
+            style="@style/Custom.TabRadioButton"
+            android:drawableTop="@drawable/tab_record_selector"
+            android:text="记录" />
 
-    <LinearLayout
-        style="@style/ll_horizontal_match_wrap"
-        android:layout_height="@dimen/topbar_height"
-        android:background="@color/alpha_6" >
+        <RadioButton
+            android:id="@+id/contact_tab"
+            style="@style/Custom.TabRadioButton"
+            android:drawableTop="@drawable/tab_contact_selector"
+            android:text="通讯录" />
 
-        <LinearLayout
-            android:id="@+id/llBottomTabTab0"
-            style="@style/bottom_tab_ll"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:id="@+id/ivBottomTabTab0"
-                style="@style/bottom_tab_iv"
-                android:src="@drawable/earth_selector" />
-
-            <TextView
-                android:id="@+id/tvBottomTabTab0"
-                style="@style/bottom_tab_tv"
-                android:text="主页" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llBottomTabTab1"
-            style="@style/bottom_tab_ll"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:id="@+id/ivBottomTabTab1"
-                style="@style/bottom_tab_iv"
-                android:src="@drawable/mail_selector" />
-
-            <TextView
-                android:id="@+id/tvBottomTabTab1"
-                style="@style/bottom_tab_tv"
-                android:text="消息" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llBottomTabTab2"
-            style="@style/bottom_tab_ll"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:id="@+id/ivBottomTabTab2"
-                style="@style/bottom_tab_iv"
-                android:src="@drawable/search_selector" />
-
-            <TextView
-                android:id="@+id/tvBottomTabTab2"
-                style="@style/bottom_tab_tv"
-                android:text="发现" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llBottomTabTab3"
-            style="@style/bottom_tab_ll"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:id="@+id/ivBottomTabTab3"
-                style="@style/bottom_tab_iv"
-                android:src="@drawable/setting_selector" />
-
-            <TextView
-                android:id="@+id/tvBottomTabTab3"
-                style="@style/bottom_tab_tv"
-                android:text="设置" />
-        </LinearLayout>
-    </LinearLayout>
-</LinearLayout>
+        <RadioButton
+            android:id="@+id/settings_tab"
+            style="@style/Custom.TabRadioButton"
+            android:drawableTop="@drawable/tab_setting_selector"
+            android:text="设置" />
+    </RadioGroup>
+</RelativeLayout>
